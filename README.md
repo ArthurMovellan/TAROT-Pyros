@@ -10,7 +10,7 @@ Aucun accès base de données nécessaire pour tester en local.
 ## Installation (macOS / Linux)
 
 # 1) Cloner
-git clone https://github.com/<ton-user>/pyros.git
+git clone https://github.com/ArthurMovellan/TAROT-Pyros.git
 cd pyros
 
 # 2) Environnement virtuel
