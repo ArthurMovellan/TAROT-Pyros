@@ -1,0 +1,104 @@
+{% extends 'pages/base.html' %}
+{% block title %}Fonctionnalités — PyRoS & TAROT{% endblock %}
+{% block content %}
+
+<section class="hero">
+    <h1>Fonctionnalités</h1>
+    <p>Observer vite, analyser simplement, partager clairement — sans complexité inutile.</p>
+    <p style="margin-top:12px;">
+        <a class="btn" href="{% url 'tarot' %}">Voir TAROT</a>
+        <a class="btn" href="{% url 'pyros' %}">Voir PyRoS</a>
+    </p>
+</section>
+
+<section>
+    <div class="pill-stats">
+        <div class="pill"><strong>Réactivité</strong><span>Démarrage très rapide après alerte</span></div>
+        <div class="pill"><strong>Simplicité</strong><span>Scénarios prêts, réglages raisonnables</span></div>
+        <div class="pill"><strong>Lisibilité</strong><span>Rapport court + image annotée</span></div>
+    </div>
+</section>
+
+<section>
+    <h2>Ce que fait le duo TAROT × PyRoS</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Préparer automatiquement</h3>
+            <p>À l’arrivée d’une alerte, PyRoS rassemble les éléments essentiels : visibilité de la cible, météo simple et Lune.</p>
+            <p>Il propose une séquence “raisonnable” (filtres, temps de pose, nombre d’images) pour démarrer sans perdre de temps.</p>
+        </div>
+
+        <div class="card">
+            <h3>Observer vite avec TAROT</h3>
+            <p>Les télescopes robotisés se pointent seuls vers la cible et lancent la séquence d’images.</p>
+            <p>Objectif : attraper les premières minutes, souvent les plus informatives.</p>
+        </div>
+
+        <div class="card">
+            <h3>Analyser simplement</h3>
+            <p>Une réduction légère donne une première estimation : position, luminosité, qualité d’image (ex. FWHM, SNR).</p>
+            <p>Les choix techniques restent sobres pour produire des résultats stables et reproductibles.</p>
+        </div>
+
+        <div class="card">
+            <h3>Partager clairement</h3>
+            <p>Un rapport court présente l’essentiel : texte bref, image annotée et mini-tableau de mesures.</p>
+            <p>Les exports (PNG/CSV/JSON) sont prêts pour l’équipe et l’archivage.</p>
+        </div>
+
+        <div class="card">
+            <h3>Garder la trace</h3>
+            <p>Chaque étape est horodatée et résumée dans un journal lisible.</p>
+            <p>Les versions et paramètres du pipeline sont conservés pour rejouer ou comparer.</p>
+        </div>
+
+        <div class="card">
+            <h3>S’intégrer sans tout changer</h3>
+            <p>Le système s’insère dans l’environnement existant (planning, stockage, échanges simples).</p>
+            <p>L’idée : moins de friction, plus de continuité avec vos habitudes.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Points forts</h2>
+    <ul class="checklist">
+        <li>De l’alerte à la première mesure en peu d’étapes.</li>
+        <li>Scénarios par défaut pour démarrer vite, ajustables au besoin.</li>
+        <li>Résultats lisibles pour décider de la suite sans relire des logs.</li>
+        <li>Traçabilité par design : on sait “quoi, quand et comment”.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Sans / Avec PyRoS</h2>
+    <div class="matrix">
+        <div class="m-row m-head">
+            <div></div>
+            <div>Sans PyRoS</div>
+            <div>Avec PyRoS</div>
+        </div>
+        <div class="m-row">
+            <div>Préparation</div>
+            <div>Recherche manuelle d’infos, réglages à la main</div>
+            <div>Vérifications automatiques + séquence proposée</div>
+        </div>
+        <div class="m-row">
+            <div>Lancement</div>
+            <div>Démarrage tardif et hétérogène</div>
+            <div>Départ rapide, réglages raisonnables</div>
+        </div>
+        <div class="m-row">
+            <div>Analyse</div>
+            <div>Scripts variés, résultats moins comparables</div>
+            <div>Réduction légère, résultats reproductibles</div>
+        </div>
+        <div class="m-row">
+            <div>Partage</div>
+            <div>Beaucoup de messages, peu de synthèse</div>
+            <div>Rapport court + exports standards</div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

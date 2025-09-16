@@ -1,0 +1,90 @@
+{% extends 'pages/base.html' %}
+{% block title %}FAQ — PyRoS & TAROT{% endblock %}
+{% block content %}
+
+<section class="hero">
+    <h1>Foire Aux Questions</h1>
+    <p>Des réponses rapides aux questions les plus fréquentes sur les télescopes TAROT et le logiciel PyRoS.</p>
+</section>
+
+<section class="faq-section">
+    <h2>Découvrir</h2>
+    <details>
+        <summary>Qu’est-ce que TAROT, en une phrase&nbsp;?</summary>
+        <p>Un réseau de télescopes robotisés capables de pointer sans intervention humaine quelques secondes après une alerte pour capturer des phénomènes brefs.</p>
+    </details>
+
+    <details>
+        <summary>Et PyRoS, à quoi ça sert&nbsp;?</summary>
+        <p>PyRoS prépare l’observation, propose une séquence raisonnable, suit l’exécution et produit un petit rapport lisible pour décider de la suite.</p>
+    </details>
+
+    <details>
+        <summary>Pourquoi utiliser des télescopes de “seulement” 25&nbsp;cm&nbsp;?</summary>
+        <p>Parce qu’ils sont rapides, autonomes et disponibles. Leur force est de réagir tôt pour capturer les premières minutes, souvent les plus informatives.</p>
+    </details>
+</section>
+
+<section class="faq-section">
+    <h2>Fonctionnement</h2>
+
+    <details>
+        <summary>D’où viennent les alertes&nbsp;?</summary>
+        <p>D’organismes qui surveillent le ciel (satellites et réseaux d’observatoires). Lorsqu’un événement soudain est détecté, une alerte automatique est émise.</p>
+    </details>
+
+    <details>
+        <summary>Que se passe-t-il quand une alerte arrive&nbsp;?</summary>
+        <p>Le site disponible vérifie la visibilité (hauteur, nuit, Lune, météo simple), se repointe automatiquement et lance une séquence d’images adaptée.</p>
+    </details>
+
+    <details>
+        <summary>PyRoS remplace-t-il les autres outils&nbsp;?</summary>
+        <p>Non. PyRoS couvre le chemin critique alerte → observation → premières mesures → rapport, et s’insère dans les outils existants quand c’est pertinent.</p>
+    </details>
+
+    <details>
+        <summary>Et si une étape échoue&nbsp;?</summary>
+        <p>Les journaux sont clairs, on voit où ça a bloqué et on relance l’étape concernée (pas besoin de tout recommencer).</p>
+    </details>
+</section>
+
+<section class="faq-section">
+    <h2>Observations & données</h2>
+
+    <details>
+        <summary>Quelles informations mesurez-vous sur une image&nbsp;?</summary>
+        <p>Une position sur le ciel (astrométrie), une estimation de luminosité (photométrie) et quelques indicateurs simples (par ex. FWHM, SNR, ciel de fond).</p>
+    </details>
+
+    <details>
+        <summary>Où vont les images et les rapports&nbsp;?</summary>
+        <p>Les images sont archivées selon les pratiques du site. PyRoS génère un rapport (texte court, image annotée, tableau de mesures) et des exports standards (PNG/CSV/JSON) pour partager facilement.</p>
+    </details>
+
+    <details>
+        <summary>Combien de sites TAROT et où&nbsp;?</summary>
+        <p>Le réseau comprend plusieurs sites emblématiques (France, Chili, océan Indien, Océanie) pour augmenter les chances d’avoir la nuit et de réagir vite.</p>
+    </details>
+</section>
+
+<section class="faq-section">
+    <h2>Pratique</h2>
+
+    <details>
+        <summary>Que se passe-t-il si la météo est mauvaise&nbsp;?</summary>
+        <p>On ne lance pas d’observation s’il y a un risque évident d’échec. PyRoS peut reporter ou basculer vers un autre créneau/site si disponible.</p>
+    </details>
+
+    <details>
+        <summary>Le système est-il entièrement autonome&nbsp;?</summary>
+        <p>Oui pour la réaction rapide, avec supervision humaine possible. Les opérateurs peuvent reprendre la main, ajuster une séquence ou stopper si nécessaire.</p>
+    </details>
+
+    <details>
+        <summary>Quelle est la feuille de route&nbsp;?</summary>
+        <p>Continuer à améliorer la réactivité, simplifier l’exploitation au quotidien et enrichir le rapport avec des éléments encore plus parlants pour décider vite.</p>
+    </details>
+</section>
+
+{% endblock %}

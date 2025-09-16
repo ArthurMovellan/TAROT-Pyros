@@ -1,0 +1,48 @@
+{% extends 'pages/base.html' %}
+{% block title %}Accueil — Pyros{% endblock %}
+{% block content %}
+<section class="hero">
+    <h1>TAROT × PyRoS — voir ce que le ciel ne montre qu’un instant</h1>
+    <p>Des télescopes robotiques ultra-réactifs et un logiciel léger pour orchestrer, analyser et partager les observations faites par ces derniers.</p>
+    <p style="margin-top:16px;">
+        <a class="btn" href="{% url 'tarot' %}">Découvrir TAROT</a>
+        <a class="btn" href="{% url 'pyros' %}">Découvrir PyRoS</a>
+        <a class="btn" href="{% url 'features' %}">Fonctionnalités</a>
+    </p>
+</section>
+
+<section class="grid">
+    <div class="card">
+        <h3>TAROT, en bref</h3>
+        <ul>
+            <li>TAROT réagit en quelques secondes aux alertes : le télescope pointe, ouvre et capture sans intervention humaine.</li>
+            <li>L’automatisation gère la planification, l’acquisition et le suivi toute la nuit.</li>
+            <li>Objectif : saisir l’afterglow au plus tôt et déclencher des observations de suivi.</li>
+        </ul>
+        <p style="margin-top:8px;">
+            <a class="btn" href="{% url 'tarot' %}">En savoir plus</a>
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>PyRoS, le logiciel</h3>
+        <ul>
+            <li>PyRoS orchestre le passage de l’alerte à l’observation avec des scénarios simples</li>
+            <li>Les réductions intégrées produisent des mesures rapides et reproductibles.</li>
+            <li>Les exports et rapports facilitent le partage et la prise de décision.</li>
+        </ul>
+        <p style="margin-top:8px;">
+            <a class="btn" href="{% url 'pyros' %}">Voir PyRoS</a>
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Workflow type</h3>
+        <ol>
+            <li>Alerte reçue : les paramètres d’observation sont préparés automatiquement.</li>
+            <li>Observation et réduction : premières mesures en quelques minutes.</li>
+            <li>Analyse et diffusion : un rapport synthétique circule à l’équipe.</li>
+        </ol>
+    </div>
+</section>
+{% endblock %}

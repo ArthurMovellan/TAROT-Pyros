@@ -1,0 +1,128 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block title %}PyRoS — Logiciel{% endblock %}
+{% block content %}
+
+<section class="hero">
+    <h1>PyRoS — un logiciel pour orchestrer, analyser, partager</h1>
+    <p>Un logiciel léger qui transforme une alerte en observation utile : PyRoS automatise les tâches répétitives et présente des résultats clairs pour l’équipe.</p>
+    <p style="margin-top:12px;">
+        <a class="btn" href="{% url 'features' %}">Voir les fonctionnalités</a>
+        <a class="btn" href="#workflow">Comment ça marche ?</a>
+    </p>
+</section>
+
+<section>
+    <h2>PyRoS en bref</h2>
+    <p>Quand une alerte arrive, il faut très vite savoir si le ciel est favorable, où pointer le télescope et avec quels réglages.</p>
+    <p>PyRoS rassemble ces éléments au même endroit : il vérifie la visibilité de la cible, la météo et la Lune, puis propose une séquence d’images adaptée.</p>
+    <p>L’observation peut alors démarrer plus tôt et avec moins de manipulations.</p>
+    <p>À la fin, PyRoS produit un bref résumé avec l’image clé et quelques mesures simples, prêt à être partagé à l’équipe.</p>
+    <p>Résultat : moins d’allers-retours, moins d’erreurs et des décisions plus rapides.</p>
+</section>
+
+<section class="tabs" aria-label="Fonctionnement de PyRoS">
+    <input type="radio" name="pyros-tabs" id="tab-orch" checked>
+    <input type="radio" name="pyros-tabs" id="tab-an"  >
+    <input type="radio" name="pyros-tabs" id="tab-share">
+
+    <div class="tab-labels">
+        <label for="tab-orch">Orchestration</label>
+        <label for="tab-an">Analyse</label>
+        <label for="tab-share">Partage</label>
+    </div>
+
+    <div class="tab-panels">
+        <div class="tab-panel" id="panel-orch">
+            <h3>Orchestration</h3>
+            <p>De l’alerte à la séquence : choix automatique des filtres, exposition, nombre d’images, et vérifications préalables (hauteur, météo, Lune).</p>
+            <ul class="bullets">
+                <li>Scénarios prêts à l’emploi pour différents types d’alertes.</li>
+                <li>Vérifications : visibilité, collisions de planification, contraintes.</li>
+                <li>Lancement supervisé : logs clairs, reprise simple en cas d’arrêt.</li>
+            </ul>
+        </div>
+
+        <div class="tab-panel" id="panel-an">
+            <h3>Analyse</h3>
+            <p>Réductions légères et reproductibles pour obtenir rapidement une mesure : astrométrie, photométrie, qualité d’image.</p>
+            <ul class="bullets">
+                <li>Pipeline simple : moins de paramètres, plus de robustesse.</li>
+                <li>Indicateurs lisibles : SNR, FWHM, magnitude estimée.</li>
+                <li>Traçabilité : version du pipeline, paramètres, time-stamp.</li>
+            </ul>
+        </div>
+
+        <div class="tab-panel" id="panel-share">
+            <h3>Partage</h3>
+            <p>PyRoS fournit un rapport clair et une image annotée qui mettent en évidence les éléments nécessaires pour décider de la suite.</p>
+            <ul class="bullets">
+                <li>Rapport synthèse : résumé, mini-tableau de mesures, lien d’archive.</li>
+                <li>Exports prêts : PNG annoté, CSV des mesures, JSON de contexte.</li>
+                <li>Diffusion interne : canal d’équipe, e-mail, ou page dédiée.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="workflow" class="stepper">
+    <h2>Workflow en 4 étapes</h2>
+    <ol class="steps">
+        <li><span class="num">1</span><h4>Alerte</h4><p>PyRoS reçoit l’alerte et prépare la cible.</p></li>
+        <li><span class="num">2</span><h4>Plan</h4><p>Vérifications rapides et génération de la séquence.</p></li>
+        <li><span class="num">3</span><h4>Acquisition</h4><p>L’observatoire exécute et remonte les images.</p></li>
+        <li><span class="num">4</span><h4>Résultats</h4><p>Mesures clés et rapport partageable.</p></li>
+    </ol>
+</section>
+
+<section>
+    <h2>Modules principaux</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Alertes</h3>
+            <p>PyRoS écoute les flux d’alertes et extrait automatiquement les informations utiles (position, heure, incertitude). Il vérifie si la cible est observable depuis le site : hauteur suffisante, nuit astronomique et absence d’obstacles évidents. Il tient compte de la Lune et, si disponible, d’un indicateur météo simple. Les événements sont classés par priorité pour éviter de se disperser. L’objectif : savoir en quelques secondes si cela vaut la peine d’agir.</p>
+        </div>
+
+        <div class="card">
+            <h3>Séquences</h3>
+            <p>À partir du type d’alerte, PyRoS propose une séquence prête à lancer : filtres, temps de pose et nombre d’images. Les réglages par défaut sont “raisonnables” pour obtenir un résultat exploitable sans perdre de temps. Les paramètres sont ajustables à la main si besoin, PyRoS adaptera le reste en fonction de cet ajustement. Les contraintes de l’instrument et la durée disponible sont prises en compte pour ne pas saturer le planning. On passe ainsi plus vite du signal d’alerte à l’observation concrète.</p>
+        </div>
+
+        <div class="card">
+            <h3>Réductions</h3>
+            <p>Une chaîne de traitement légère produit rapidement des mesures stables. L’astrométrie place correctement la source sur le ciel, la photométrie donne une estimation de luminosité et quelques indicateurs de qualité (SNR, FWHM). Les choix techniques restent simples pour éviter les résultats “fragiles”. Chaque étape est reproductible : mêmes entrées, mêmes sorties.</p>
+        </div>
+
+        <div class="card">
+            <h3>Rapports</h3>
+            <p>PyRoS génère un résumé lisible qui va à l’essentiel. On y trouve une description courte de l’observation, une image annotée et un mini-tableau de mesures. Les exports standards (PNG, CSV, JSON) sont produits en même temps pour partager ou archiver. Le but n’est pas d’être exhaustif, mais d’être utile tout de suite. L’équipe dispose ainsi des éléments nécessaires pour choisir la suite sans relire des logs techniques.</p>
+        </div>
+
+        <div class="card">
+            <h3>Intégrations</h3>
+            <p>Le logiciel s’insère dans l’environnement existant plutôt que de tout remplacer. Il peut récupérer des infos simples depuis des services externes (par exemple un indicateur météo) et déposer ses résultats là où l’équipe les attend. Les échanges restent volontairement modestes et robustes. On privilégie des formats ouverts et faciles à automatiser. Résultat : moins de friction et plus de continuité avec vos habitudes.</p>
+        </div>
+
+        <div class="card">
+            <h3>Traçabilité & journal</h3>
+            <p>Toutes les étapes importantes sont horodatées et résumées dans un journal clair. Les versions du pipeline et les paramètres utilisés sont conservés. Cela permet de comprendre rapidement ce qui a été fait et de reproduire un résultat plus tard. En cas de problème, on sait où regarder et quoi comparer. La traçabilité devient un réflexe, pas une contrainte.</p>
+        </div>
+    </div>
+</section>
+
+<section class="callouts">
+    <div class="callout ok">
+        <h4>Clair pour l’équipe</h4>
+        <p>Des résumés lisibles qui vont à l’essentiel : quoi et quand.</p>
+    </div>
+    <div class="callout info">
+        <h4>Simple à opérer</h4>
+        <p>Paramètres par défaut raisonnables ; override possible si besoin.</p>
+    </div>
+    <div class="callout warn">
+        <h4>Traçable par design</h4>
+        <p>Chaque résultat garde la version du pipeline et les paramètres utilisés.</p>
+    </div>
+</section>
+
+{% endblock %}

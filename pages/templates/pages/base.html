@@ -1,0 +1,29 @@
+{% load static %}
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{% block title %}Pyros — Projet{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'pages/main.css' %}">
+    </head>
+    <body>
+        <div class="topbar">
+            <div class="container nav">
+                <nav class="nav-links">
+                    <a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Accueil</a>
+                    <a href="{% url 'tarot' %}" class="{% if request.path == '/tarot/' %}active{% endif %}">TAROT</a>
+                    <a href="{% url 'pyros' %}" class="{% if request.path == '/pyros/' %}active{% endif %}">PyRoS</a>
+                    <a href="{% url 'features' %}" class="{% if request.path == '/features/' %}active{% endif %}">Fonctionnalités</a>
+                    <a href="{% url 'faq' %}" class="{% if request.path == '/faq/' %}active{% endif %}">FAQ</a>
+                </nav>
+            </div>
+        </div>
+        <main class="container">
+            {% block content %}{% endblock %}
+        </main>
+        <footer class="container">
+            © 2025 Arthur Movellan
+        </footer>
+    </body>
+</html>

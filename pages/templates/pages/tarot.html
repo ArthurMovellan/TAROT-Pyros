@@ -1,0 +1,154 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block title %}TAROT — Télescopes robotiques{% endblock %}
+{% block content %}
+
+<section class="hero">
+    <h1>TAROT — des télescopes qui réagissent en quelques secondes</h1>
+    <p>Des instruments robotisés pour attraper les phénomènes célestes qui ne durent qu’un instant : alerte, pointage, image… tout s’enchaîne automatiquement.</p>
+    <p>
+        On parle d’<em>événements célestes soudains</em> quand un phénomène apparaît rapidement dans le ciel
+        puis s’estompe tout aussi vite : cela peut durer quelques secondes, minutes ou jours. Réagir vite permet
+        de récolter les informations les plus précieuses.
+    </p>
+    <p style="margin-top:12px;">
+        <a class="btn" href="{% url 'pyros' %}">Voir PyRoS</a>
+        <a class="btn" href="{% url 'features' %}">Fonctionnalités</a>
+    </p>
+</section>
+
+<section>
+    <h2>C’est quoi TAROT ?</h2>
+    <p>
+        TAROT est un réseau de télescopes optiques <strong>entièrement robotisés</strong>.
+        Ils écoutent des <em>alertes automatiques</em> (issues de satellites et de collaborations),
+        se pointent seuls vers la cible et enchaînent une séquence d’images, sans intervention humaine immédiate.
+        L’objectif : <strong>capturer très tôt</strong> l’événement pour en tirer un maximum d’information.
+    </p>
+</section>
+
+<section>
+    <h2>Comment ça fonctionne ?</h2>
+    <ol>
+        <li><strong>Alerte reçue</strong> : un signal indique qu’un événement vient d’apparaître.</li>
+        <li><strong>Repointage automatique</strong> : le télescope s’oriente et fait la mise au point.</li>
+        <li><strong>Acquisition</strong> : une séquence d’images démarre immédiatement.</li>
+        <li><strong>Contrôles rapides</strong> : premières mesures pour confirmer la détection.</li>
+        <li><strong>Partage</strong> : un résumé circule pour déclencher d’autres observations.</li>
+    </ol>
+</section>
+
+<section class="map">
+    <h2>Où sont les télescopes TAROT ?</h2>
+    <p>
+        Le réseau comprend plusieurs sites emblématiques répartis sur différents continents,
+        afin d’augmenter les chances d’avoir la nuit et un ciel dégagé quelque part sur le globe,
+        et de réagir vite aux alertes.
+    </p>
+
+    <figure class="map-figure pins-2x1">
+        <img class="map-img"
+            loading="lazy"
+            src="{% static 'pages/planisphere-2x1.png' %}"
+            alt="Planisphère des sites TAROT : Calern, La Silla, Les Makes, Nouvelle-Calédonie"
+        >
+        <div class="map-pins">
+            <div class="pin" style="left: var(--calern-x); top: var(--calern-y);" data-side="right">
+                <button class="dot" aria-label="Calern"></button>
+                <div class="tip" role="tooltip">
+                    <h4>Calern (France)</h4>
+                    <p>Site historique (OCA). Point d’entrée européen, maintenance locale et réactivité élevée.</p>
+                </div>
+            </div>
+
+            <div class="pin" style="left: var(--lasilla-x); top: var(--lasilla-y);" data-side="right">
+                <button class="dot" aria-label="La Silla"></button>
+                <div class="tip" role="tooltip">
+                    <h4>La Silla (Chili)</h4>
+                    <p>Site ESO dans l’hémisphère sud : ciel stable et sombre pour capter tôt les événements australs.</p>
+                </div>
+            </div>
+
+            <div class="pin" style="left: var(--lesmakes-x); top: var(--lesmakes-y);" data-side="right">
+                <button class="dot" aria-label="Les Makes"></button>
+                <div class="tip" role="tooltip">
+                    <h4>Les Makes (La Réunion)</h4>
+                    <p>Comble un “trou horaire” : augmente la probabilité d’avoir la nuit quelque part sur le globe.</p>
+                </div>
+            </div>
+
+            <div class="pin" style="left: var(--nc-x); top: var(--nc-y);" data-side="left">
+                <button class="dot" aria-label="Nouvelle-Calédonie"></button>
+                <div class="tip" role="tooltip">
+                    <h4>La Foa (Nouvelle-Calédonie)</h4>
+                    <p>Continuité temporelle Asie-Pacifique ↔ Europe/AmSud pour des suivis plus longs.</p>
+                </div>
+            </div>
+        </div>
+    </figure>
+</section>
+
+<section>
+    <h2>En un coup d’œil : la chronologie</h2>
+    <ol class="timeline">
+        <li>
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+                <h4>Premiers télescopes (fin des années 1990)</h4>
+                <p>Mise en service des premiers instruments, validation du mode robotisé.</p>
+            </div>
+        </li>
+        <li>
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+                <h4>Extension (années 2000)</h4>
+                <p>Déploiement dans l’hémisphère sud pour capter davantage d’événements.</p>
+            </div>
+        </li>
+        <li>
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+                <h4>Modernisation (années 2010)</h4>
+                <p>Automatisation renforcée, meilleures caméras et pipelines plus rapides.</p>
+            </div>
+        </li>
+        <li>
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+                <h4>Couverture étendue (années 2020)</h4>
+                <p>Nouveaux sites et intégrations avec des réseaux d’alerte en temps réel.</p>
+            </div>
+        </li>
+    </ol>
+</section>
+
+<section class="gallery">
+    <h2>Galerie</h2>
+    <div class="gallery-grid">
+        <figure class="gl-card">
+            <img loading="lazy"
+                src="{% static 'pages/tarot/calern.png' %}"
+                alt="Télescope TAROT à Calern (France)"
+            >
+            <figcaption>Calern (France) — plateau de Calern, Observatoire de la Côte d’Azur.</figcaption>
+        </figure>
+
+        <figure class="gl-card">
+            <img loading="lazy"
+                src="{% static 'pages/tarot/lasilla.png' %}"
+                alt="Télescope TAROT à La Silla (Chili)"
+            >
+        <figcaption>La Silla (Chili) — site de l’ESO, ciel stable de l’hémisphère Sud.</figcaption>
+        </figure>
+
+        <figure class="gl-card">
+            <img loading="lazy"
+                src="{% static 'pages/tarot/lesmakes.png' %}"
+                alt="Télescope TAROT aux Makes (La Réunion)"
+            >
+        <figcaption>Les Makes (La Réunion) — couverture précieuse de l’océan Indien.</figcaption>
+        </figure>
+    </div>
+</section>
+
+{% endblock %}

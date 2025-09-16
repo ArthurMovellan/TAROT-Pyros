@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+
+# Django
+db.sqlite3
+media/
+# (on versionne tes fichiers dans pages/static/, donc on NE filtre pas tout "static/")
+
+# Environnements
+.venv/
+venv/
+.env
+*.env
+
+# macOS / éditeur
+.DS_Store
+.vscode/
